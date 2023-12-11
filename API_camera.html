@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API camera</title>
+</head>
+<body>
+    <video id="videoElement" width="400" height="300" autoplay></video>
+    <button onclick="starCamera()">Abre camera</button>
+    <button onclick="stopCamera()">fecha camera</button>
+    <script>
+        let videoStream;
+        async function starCamera(){
+            const videoElement = document.getElementById('videoElement');
+            try{
+                videoStream = await navigator.mediaDevices.getUserMedia({video : true});
+                videoElement.srcObject = videoStream;
+            }catch(error){
+                console.error('Erro ao abrir a camera', error);
+                alert ('Erro ao abrir camera')
+            }
+        }
+        async function stopCamera(){
+            const videoElement = document.getElementById('videoElement');
+            if(videoStream){
+                const tracks = videoStream.getTracks();
+                tracks.forEach(track => track.stop());
+                    videoElement.srcObject = null;
+            }
+        }
+    </script>
+</body>
+</html>

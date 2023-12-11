@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de produtos</title>
+</head>
+<body>
+    <button id="menuButton"> Produtos </button>
+    <div id="menu" aria-hidden="true">
+        <select aria-label="selecione um produto">
+           <option value="1">chocolate</option>
+           <option value="2">queijo</option>
+           <option value="3">calabresa</option>
+        </select>
+        <p id="descricao-produto">Descrição do produto: <span id="descricao-produto"></p>
+    </div>
+    <style>
+       
+        
+    </style>
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const menu = document.getElementById("menu");
+        menuButton.addEventListener("click", () =>{
+            const expand = menuButton.getAttribute("aria-expanded")=== "true";
+            menuButton.setAttribute("aria-expanded", !expand);
+            menu.setAttribute("aria-hidden", expand);
+        });
+        //atualiza a descrição dos produtos
+        selectProdutos.addEventListener("click", )
+    </script>
+</body>
+</html>

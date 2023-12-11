@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetas-Drag and Drop</title>
+</head>
+<html>
+    <body>
+        <p>Drag:</p>
+    <div id="cont">
+        <div id="first" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="du" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="tri" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="sa">  
+            <p>Nome: Saturno;</p>
+            <p>Sexto planeta do sistema solar;</p>
+            <p>Trata-se do segundo maior planeta desse sistema, atrás apenas de Júpiter, apresentando<br>
+             um diâmetro de 120 536 km, que é cerca de nove vezes maior que o diâmetro equatorial terrestre.
+        </div>
+        <div id="ju">  
+            <p>Nome: Júpiter;</p>
+            <p>Quinto planeta do sistema solar</p>
+            <p>e Júpiter fosse oco, poderia caber mais de mil Terras dentro. <br>
+                Ele também contém mais matéria que todos os outros planetas combinados. <br>
+                Ele tem uma massa de 1,9 x 1027 kg e tem 142.800 quilômetros (88.736 milhas) de diâmetro no equador.
+        <div id="Mar">  
+            <p>Nome: Marte;</p>
+            <p>Quarto planeta do sistema solar</p>
+            <p>A 227 milhões de km do Sol, é um planeta formado por superfície rochosa
+                <br> e atmosfera rica em CO2. Representação de Marte, 
+                quarto planeta a partir do Sol. Em função de sua coloração, é chamado também de Planeta Vermelho.</p>
+        </div>
+    </div>
+        <br>
+        <img id="d1" src="IMG/sa.webp" draggable="true" ondragstart="drag(event, sa)" width="300" height="300">
+        <img id="d2" src="IMG/ju.webp" draggable="true" ondragstart="drag(event, ju)" width="300" height="300">
+        <img id="d3" src="IMG/mar.webp" draggable="true" ondragstart="drag(event, Mar)" width="300" height="300">
+        </body>
+    <style>
+    #cont {
+        display: flex;
+    }
+    #first, #du, #tri {
+
+        width: 305px;
+        height: 305px;
+        padding: 10px;
+        border: 1px solid #000000;
+        display: flex;
+    }
+   
+    #sa {
+        display: none;
+ 
+    }
+    #ju {
+        display: none;
+ 
+    }
+    #Mar {
+        display: none;
+ 
+    }
+    </style>
+    <script>
+        function allowDrop(rr) {
+        rr.preventDefault();
+    }
+ 
+        function drag(rr, sa, ju, Mar) {
+        rr.dataTransfer.setData("text", rr.target.id);
+        sa.style.display = 'block';
+        ju.style.display = 'block';
+        Mar.style.display = 'block';
+ 
+    }
+ 
+        function drop(rr) {
+        rr.preventDefault();
+        var data = rr.dataTransfer.getData("text");
+        rr.target.appendChild(document.getElementById(data));
+    }
+ 
+    </script>
+ 
+</html>
